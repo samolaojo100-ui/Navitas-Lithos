@@ -79,7 +79,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px;
+            scroll-padding-top: 120px; /* Prevents navbar from covering headings */
         }
 
         body {
@@ -128,6 +128,10 @@
             position: relative;
         }
 
+        .section:last-of-type {
+            padding-bottom: 6rem;
+        }
+
         .section-title {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
@@ -163,6 +167,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            white-space: nowrap; /* Prevents text wrapping inside buttons */
         }
 
         .btn::before {
@@ -402,7 +407,8 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 100px; /* Increased from 80px to create more space below navbar */
+            margin-top: 0; /* Ensure no negative margin */
         }
 
         .hero::before {
@@ -997,6 +1003,7 @@
 
             .nav-links.active {
                 display: flex;
+                margin-bottom: 1rem;
             }
 
             .mobile-toggle {
@@ -1007,8 +1014,25 @@
                 gap: 0.5rem;
             }
 
+            /* Adjust navbar button size on mobile */
+            .nav-actions .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+
             .section {
                 padding: 5rem 0;
+            }
+
+            .hero {
+                padding-top: 90px; /* Slightly less on mobile but still roomy */
             }
 
             .hero h1 {
@@ -1097,6 +1121,10 @@
         }
 
         @media (max-width: 360px) {
+            .hero {
+                padding-top: 80px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -1117,6 +1145,17 @@
             
             .hero-buttons .btn {
                 justify-content: center;
+            }
+
+            /* Further reduce navbar button on very small screens */
+            .nav-actions .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .theme-toggle {
+                width: 34px;
+                height: 34px;
             }
         }
 
@@ -1300,7 +1339,7 @@
             <div class="about-grid">
                 <div class="about-visual reveal">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800" alt="Renewable Energy Infrastructure" loading="lazy">
+                        <img src="https://unsplash.com/photos/a-lot-of-power-lines-that-are-next-to-each-other-KnOCzXphyyI" alt="Renewable Energy Infrastructure" loading="lazy">
                     </div>
                 </div>
                 <div class="about-content reveal">
@@ -1673,4 +1712,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
